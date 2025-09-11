@@ -1,12 +1,37 @@
 // 1. importar o framework
 const express = require("express");
+// importar middlewar de terceiros
+const cors = require('cors')
+
+const router = require('./router');
 
 // 2. criar uma instância da aplicação
-const app = express()
+const app = express();
+
+// middleware embutido ou integrado
+app.use(express.json());
+// ?param1=valor1&param2=valor2
+app.use(express.urlencoded({ extended: false})); 
+
+//middleware de terceiros
+app.use(cors());
+
+// middleware da aplicação
+app.use((req, res, next) => {
+    console.log("Passei pelo middleware de app");
+    next();
+});
+
+app.use('/tarefas', router);
 
 // Criar um midlleware
 app.get('/', (req, res) => {
     res.send("Olá");
+});
+
+// middleware de erro
+app.use((err, req, res, next) => {
+    res.status(500).send(err.message);
 });
 
 // 3. iniciar a aplicação
