@@ -23,7 +23,7 @@ const alterar = (tarefa) => {
   if (tarefaEncontrada) {
     tarefaEncontrada.nome = tarefa.nome;
     tarefaEncontrada.concluida = tarefa.concluida;
-  }
+  }  
   return tarefaEncontrada;
 }
 
@@ -33,6 +33,6 @@ const excluir = (id) => {
     tarefas.splice(posicao, 1);
   }
   return posicao;
-};
+}
 
 module.exports = { criar, listar, pesquisarId, alterar, excluir };

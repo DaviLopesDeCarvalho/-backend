@@ -1,42 +1,37 @@
-import { soma, subtracao, divisao, multiplicacao } from "./index.js";
+import { soma, subtracao, multiplicacao, divisao } from "./index.js";
 
-console.log("Teste da função soma()")
-if (soma(2, 2) === 4) console.log("Passou 1°!")
-else console.log("Falhou 1°");
+console.log("Teste da função soma()");
+if (soma(2, 2) === 4) console.log("Passou 1º!");
+else console.log("Falhou 1º!");
 
-if (soma(-1, 2) === 1) console.log("Passou no 2°!")
-else console.log("Falhou 2°!");
+if (soma(-1, 2) === 1) console.log("Passou 2º!");
+else console.log("Falhou 2º!");
 
-if (soma(2, 0) === 2) console.log("Passou 3°!")
-else console.log("Falhou 3°!");
+if (soma(2, 0) === 2) console.log("Passou 3º!");
+else console.log("Falhou 3º!");
 
-console.log("Teste da função subtração()")
-if (subtracao(4, 2) === 2) console.log("Passou 4°!")
-else console.log("Falhou 4°!");
+console.log("Teste da função subtracao()");
+if (subtracao(4, 2) === 2) console.log("Passou 4º!");
+else console.log("Falhou 4º!");
+if (subtracao(-2, 2) === -4) console.log("Passou 5º!");
+else console.log("Falhou 5º!");
+if (subtracao(-2, 0) === -2) console.log("Passou 6º!");
+else console.log("Falhou 6º!");
 
-if (subtracao(-2, 2) === -4) console.log("Passou 5°!")
-else console.log("Falhou 5°!");
+console.log("Teste da função multiplicacao()");
+if (multiplicacao(4, 2) === 8) console.log("Passou 7º!");
+else console.log("Falhou 7º!");
+if (multiplicacao(-2, 2) === -4) console.log("Passou 8º!");
+else console.log("Falhou 8º!");
+if (multiplicacao(-2, 0) === 0) console.log("Passou 9º!");
+else console.log("Falhou 9º!");
+if (multiplicacao(-2, -2) === 4) console.log("Passou 10º!");
+else console.log("Falhou 10º!");
 
-if (subtracao(-2, -0) === -2) console.log("Passou 6°!")
-    else console.log("Falhou 6°!");
-
-
-console.log("Teste da função divisão()")
-if (divisao(4, 2) === 2) console.log("Passou 7°!")
-else console.log("Falhou 7°!");
-
-if (divisao(4, -2) === -2) console.log("Passou 8°!")
-    else console.log("Falhou 8°!");
-
-if (divisao(2, 0) === undefined) console.log("Passou 9°!")
-    else console.log("Falhou 9°!");
-
-console.log("Teste da função multiplicação()")
-if (multiplicacao(4, 2) === 8) console.log("Passou 10°!")
-else console.log("Falhou 10°!");
-
-if (multiplicacao(4, -2) === -8) console.log("Passou 11°!")
-    else console.log("Falhou 11°!");
-
-if (multiplicacao(2, 0) === 0) console.log("Passou 12°!")
-    else console.log("Falhou 13°!");
+console.log("Teste da função divisao()");
+if (divisao(4, 2) === 2) console.log("Passou 11º!");
+else console.log("Falhou 11º!");
+if (divisao(4, -2) === -2) console.log("Passou 12º!");
+else console.log("Falhou 12º!");
+if (divisao(4, 0) === undefined) console.log("Passou 13º!");
+else console.log("Falhou 13º!");

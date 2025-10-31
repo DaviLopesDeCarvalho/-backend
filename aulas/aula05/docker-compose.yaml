@@ -1,10 +1,11 @@
 services:
   app:
-    image: node:21
-    container_name: minhapp
+    image: mongodb/mongodb-community-server:7.0-ubuntu2204
+
+    container_name: meudb
     ports:
-      - 3000:3000
+      - 27017:27017
     volumes:
-      - ./:/app
+      - ./:/data/db
     tty: true
     stdin_open: true

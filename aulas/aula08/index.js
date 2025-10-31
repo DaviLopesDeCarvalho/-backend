@@ -1,11 +1,11 @@
-const readline = require("readline-sync")
+const readline = require("readline-sync");
 const conectar = require("./database");
 
 let db;
 let collection;
 
 async function inserir(nomeTarefa) {
-    const resultado =  await collection.insertOne({
+    const resultado = await collection.insertOne({
         nome: nomeTarefa,
         concluida: false
     });
@@ -31,45 +31,49 @@ async function remover(nomeTarefa) {
 }
 
 async function main() {
-    db = await conectar();
-    collection = db.collection("tarefas")
+  db = await conectar();
+  collection = db.collection("tarefas");
 
-    while (true) {
-        console.log("MENU PRINCIPAL");
-        console.log("1 - Criar tarefa");
-        console.log("2 - Buscar tarefa");
-        console.log("3 - Alterar tarefa");
-        console.log("4 - Remover tarefa");
-        console.log("5 - Sair");
+  while (true) {
+    console.log("MENU PRINCIPAL");
+    console.log("1 - Criar tarefa");
+    console.log("2 - Burscar tarefa");
+    console.log("3 - Alterar tarefa");
+    console.log("4 - Remover tarefa");
+    console.log("5 - Sair");
 
-        const opcao = readline.question("Escolha uma opcao: ");
-        switch (opcao) {
-            case '1': {
-              const nome = readline.question("Informe o nome da tarefas: ");
-              await inserir(nome);
-              break;
-            }
-            case '2': {
-              const nome = readline.question("Informe o nome da tarefa: ");
-              await buscar(nome);
-              break;
-            }
-            case '3': {
-              const nome = readline.question("Informe o nome da tarefa: ");
-              const nomeAtual = readline.question("Informe outro nome para a tarefa: ");
-              const concluidaAtual = readline.question("Informe outra situcao da tarefa: ");
-              await alterar(nome, nomeAtual, concluidaAtual);
-              break;
-            }
-            case '4': {
-             const nome = readline.question("Informe o nome da tarefa: ");
-             await remover(nome);
-             break;
-            }
-            case '5': process.exit(0);
-            default: console.log("Opcao invalida");
-        }
+    const opcao = readline.question("Escolha uma opcao: ");
+
+    switch (opcao) {
+      case "1": {
+        const nome = readline.question("Informe o nome da tarefa: ");
+        await inserir(nome);
+        break;
+      }
+      case "2": {
+        const nome = readline.question("Informe o nome da tarefa: ");
+        await buscar(nome);
+        break;
+      }
+      case "3": {
+        const nome = readline.question("Informe o nome da tarefa: ");
+        const nomeAtual = readline.question("Informe outro nome para a tarefa: ");
+        const concluidaAtual = readline.question("Informe outra situacao da tarefa: ");
+        await alterar(nome, nomeAtual, concluidaAtual);
+        break;
+      }
+      case "4": {
+        const nome = readline.question("Informe o nome da tarefa: ");
+        await remover(nome);
+        
+        break;
+      }
+      case "5":
+        process.exit(0);
+      default:
+        console.log("Opcao invalida");
     }
+  }
 }
 
 main();
